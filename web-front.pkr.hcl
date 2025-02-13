@@ -49,24 +49,26 @@ build {
     destination = "/tmp/index.html"
 
   }
-  
+
   provisioner "shell" {
     inline = [
       "echo creating directories",
       # COMPLETE ME add inline scripts to create necessary directories and change directory ownership.
       
       # creating necessary directories
-      "sudo mkdir -p /web/html",                        
+      "sudo mkdir -p /web/html",   
+      "sudo mkdir -p /tmp/web"                     
       "sudo mkdir -p /etc/nginx/sites-available", 
       "sudo mkdir -p /etc/nginx/sites-enabled",
 
       "sudo mv /tmp/index.html /web/html/index.html",
+
       # Setting correct ownership
       "sudo chown -R www-data:www-data /web/html",
 
       # Ensuring proper permissions
       "sudo chmod -R 755 /web/html"
-
+      "sudo chmod 755 /tmp/web"
     ]
   }
 
