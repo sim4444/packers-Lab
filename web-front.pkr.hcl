@@ -13,7 +13,7 @@ source "amazon-ebs" "ubuntu" {
   ami_name      = "web-nginx-aws"
   instance_type = "t2.micro"
   region        = "us-west-2"
-  ami_id        = "ami-001651dd1b19ebcb6" #actual Ubuntu 24.04 AMI ID
+  #ami_id        = "ami-001651dd1b19ebcb6" #actual Ubuntu 24.04 AMI ID
   source_ami_filter {
     filters = {
 		  # COMPLETE ME complete the "name" argument below to use Ubuntu 24.04
