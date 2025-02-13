@@ -69,9 +69,28 @@ build {
 
     source      = "files/nginx.conf"
     destination = "/tmp/web/nginx.conf"
-    
+
   }
 
   # COMPLETE ME add additional provisioners to run shell scripts and complete any other tasks
+
+  # Install Nginx
+  provisioner "shell" {
+    script = "scripts/install-nginx"
+  }
+
+  # Run the setup script to configure Nginx correctly
+  provisioner "shell" {
+    script = "scripts/setup-nginx"
+  }
+
+  # Restart and enable Nginx
+  provisioner "shell" {
+    inline = [
+      "sudo systemctl restart nginx",
+      "sudo systemctl enable nginx"
+    ]
+  }
+  
 }
 
