@@ -1,5 +1,5 @@
-# 4640-w6-lab-start-w25
+## Web Server Screenshot
 
-Starter files for the week 6 lab, intro to Packer.
+Here is the screenshot showing the deployed web server:
 
-See lab instructions on D2L for details.
+![Lab Week 6 Screenshot](screenshot_image_Visiting_HTML_doc_being_served_by_running_instance.png)
