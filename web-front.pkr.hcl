@@ -50,6 +50,14 @@ build {
 
   }
 
+  provisioner "file" {
+    # COMPLETE ME add the nginx.conf file to your image
+
+    source      = "files/nginx.conf"
+    destination = "/tmp/web/nginx.conf"
+
+  }
+
   provisioner "shell" {
     inline = [
       "echo creating directories",
@@ -70,20 +78,12 @@ build {
 
       # Ensuring proper permissions
       "sudo chmod -R 755 /web/html",
-      "sudo chmod 755 /tmp/web"
+      "sudo chmod -R 755 /tmp/web"
     ]
   }
 
   
   
-
-  provisioner "file" {
-    # COMPLETE ME add the nginx.conf file to your image
-
-    source      = "files/nginx.conf"
-    destination = "/tmp/web/nginx.conf"
-
-  }
 
   # COMPLETE ME add additional provisioners to run shell scripts and complete any other tasks
 
