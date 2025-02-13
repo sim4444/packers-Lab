@@ -61,11 +61,15 @@ build {
 
     source      = "files/index.html"
     destination = "/web/html/index.html"
-    
+
   }
 
   provisioner "file" {
     # COMPLETE ME add the nginx.conf file to your image
+
+    source      = "files/nginx.conf"
+    destination = "/tmp/web/nginx.conf"
+    
   }
 
   # COMPLETE ME add additional provisioners to run shell scripts and complete any other tasks
