@@ -83,8 +83,6 @@ build {
     destination = "/tmp/web/nginx.conf"
   }
 
-  }
-
   
   provisioner "file" {
     # COMPLETE ME add the nginx.conf file to your image
@@ -113,6 +111,6 @@ build {
       "sudo systemctl enable nginx"
     ]
   }
-
+}
 
 
