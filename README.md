@@ -11,10 +11,10 @@ This project automates the **creation of a custom AWS AMI using Packer** and **d
 
 ---
 
-##  Steps We Completed
+##  Steps  Completed
 
 ### 1️⃣ Cloned the Starter Code
-We started by cloning the repository:
+I started by cloning the repository:
 ```bash
 git clone https://gitlab.com/cit_4640/4640-w6-lab-start-w25.git
 cd 4640-w6-lab-start-w25
