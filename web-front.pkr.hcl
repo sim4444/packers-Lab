@@ -26,6 +26,10 @@ source "amazon-ebs" "ubuntu" {
 	}
 
   ssh_username = "ubuntu"
+
+  vpc_id        = "vpc-03778c277464eb4e4"  # Replaced with your Terraform-created VPC ID from week 4
+  subnet_id     = "subnet-0ce22d3c73db4df58"  # Replaced with your Terraform-created Subnet ID from week 4
+
 }
 
 # https://developer.hashicorp.com/packer/docs/templates/hcl_templates/blocks/build
@@ -37,6 +41,15 @@ build {
   ]
   
   # https://developer.hashicorp.com/packer/docs/templates/hcl_templates/blocks/build/provisioner
+  
+  provisioner "file" {
+    # COMPLETE ME add the HTML file to your image
+
+    source      = "files/index.html"
+    destination = "/tmp/index.html"
+
+  }
+  
   provisioner "shell" {
     inline = [
       "echo creating directories",
@@ -47,6 +60,7 @@ build {
       "sudo mkdir -p /etc/nginx/sites-available", 
       "sudo mkdir -p /etc/nginx/sites-enabled",
 
+      "sudo mv /tmp/index.html /web/html/index.html",
       # Setting correct ownership
       "sudo chown -R www-data:www-data /web/html",
 
@@ -56,13 +70,7 @@ build {
     ]
   }
 
-  provisioner "file" {
-    # COMPLETE ME add the HTML file to your image
-
-    source      = "files/index.html"
-    destination = "/web/html/index.html"
-
-  }
+  
 
   provisioner "file" {
     # COMPLETE ME add the nginx.conf file to your image
