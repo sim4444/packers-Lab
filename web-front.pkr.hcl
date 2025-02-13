@@ -58,6 +58,10 @@ build {
 
   provisioner "file" {
     # COMPLETE ME add the HTML file to your image
+
+    source      = "files/index.html"
+    destination = "/web/html/index.html"
+    
   }
 
   provisioner "file" {
