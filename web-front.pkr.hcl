@@ -45,7 +45,6 @@ build {
   provisioner "file" {
     source      = "files/index.html"
     destination = "/tmp/index.html"
-<<<<<<< HEAD
   }
 
   # Ensure directories exist, move files, set permissions
@@ -83,8 +82,6 @@ build {
     source      = "files/nginx.conf"
     destination = "/tmp/web/nginx.conf"
   }
-
-=======
 
   }
 
@@ -127,7 +124,6 @@ build {
 
   }
 
->>>>>>> d135689a37ccabff8bc4258135d91f449aaa6d30
   # COMPLETE ME add additional provisioners to run shell scripts and complete any other tasks
 
   # Install Nginx
