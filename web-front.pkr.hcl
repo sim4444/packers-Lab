@@ -42,6 +42,13 @@ build {
   
   # https://developer.hashicorp.com/packer/docs/templates/hcl_templates/blocks/build/provisioner
   
+  provisioner "file" {
+    # COMPLETE ME add the HTML file to your image
+
+    source      = "files/index.html"
+    destination = "/tmp/index.html"
+
+  }
 
   provisioner "shell" {
     inline = [
@@ -54,10 +61,11 @@ build {
       "sudo mkdir -p /etc/nginx/sites-available", 
       "sudo mkdir -p /etc/nginx/sites-enabled",
 
+      # moving index.html
       "sudo mv /tmp/index.html /web/html/index.html",
 
       # Setting correct ownership
-      "sudo chown -R ubuntu:ubuntu /web/html",
+      "sudo chown -R www-data:www-data /web/html",
       "sudo chown -R ubuntu:ubuntu /tmp/web",
 
       # Ensuring proper permissions
@@ -66,13 +74,7 @@ build {
     ]
   }
 
-  provisioner "file" {
-    # COMPLETE ME add the HTML file to your image
-
-    source      = "files/index.html"
-    destination = "/tmp/index.html"
-
-  }
+  
   
 
   provisioner "file" {
