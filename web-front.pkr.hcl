@@ -33,7 +33,7 @@ build {
   name = "web-nginx"
   sources = [
     # COMPLETE ME Use the source defined above
-    ""
+    "source.amazon-ebs.ubuntu"
   ]
   
   # https://developer.hashicorp.com/packer/docs/templates/hcl_templates/blocks/build/provisioner
